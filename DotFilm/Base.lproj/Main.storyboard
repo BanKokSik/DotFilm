@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="filmCell" rowHeight="150" id="hnF-pS-yCS" customClass="FilmCell" customModule="DotFilm" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="filmCell" rowHeight="150" id="hnF-pS-yCS" customClass="MovieTableViewCell" customModule="DotFilm" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hnF-pS-yCS" id="XFw-I2-Lhw">
@@ -63,6 +63,9 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vC-4O-XdH">
                                                     <rect key="frame" x="0.0" y="124.5" width="205" height="25.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25.5" id="jx1-8w-dSb"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -93,6 +96,14 @@
                                         <constraint firstAttribute="trailing" secondItem="HkH-oe-duk" secondAttribute="trailing" constant="7" id="vWw-08-H1L"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="filmLenght" destination="c57-K9-jhj" id="QMg-lE-xYe"/>
+                                    <outlet property="filmName" destination="UCA-0w-EEe" id="Ohp-LM-lQP"/>
+                                    <outlet property="filmPoster" destination="wMk-JS-NOd" id="QaI-Aj-inA"/>
+                                    <outlet property="filmRating" destination="5vC-4O-XdH" id="Y4F-zp-IQk"/>
+                                    <outlet property="filmYear" destination="5oL-de-ez2" id="Fik-TG-DBz"/>
+                                    <outlet property="likeFilm" destination="HkH-oe-duk" id="ekS-Sg-dLY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

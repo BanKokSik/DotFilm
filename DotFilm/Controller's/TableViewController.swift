@@ -9,27 +9,40 @@ import UIKit
 
 class TableViewController: UITableViewController {
 
+    
     @IBOutlet var filmTableView: UITableView!
+   
+    var filmData: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        filmTableView.dataSource = self
+        filmTableView.delegate = self
+        setData()
     }
 
+    
+    private func setData() {
+        LoadData.load.fetchMovies(complition: { (movieList: [Movie]) in
+            self.filmData = movieList
+            self.filmTableView.reloadData()
+        })
+    }
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return filmData.count
     }
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") as? FilmCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell") as? MovieTableViewCell{
+            cell.cellConfigurate(film: filmData[indexPath.row])
             return cell
         }
         return UITableViewCell()
