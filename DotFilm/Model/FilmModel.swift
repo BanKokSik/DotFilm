@@ -8,11 +8,11 @@
 import Foundation
 
 struct FilmModel: Codable{
-    let moves: [Movie]
+    let docs: [Doc]
     
 }
 
-struct Movie: Codable{
+struct Doc: Codable{
     let id: Int
     let movieLength: Int?
     let name: String?

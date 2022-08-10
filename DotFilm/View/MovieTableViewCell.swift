@@ -16,7 +16,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var filmYear: UILabel!
     @IBOutlet weak var filmLenght: UILabel!
     @IBOutlet weak var filmRating: UILabel!
-    @IBOutlet weak var likeFilm: UIButton!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,16 +28,16 @@ class MovieTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    func cellConfigurate(film: Movie){
+    
+    func cellConfigurate(film: Doc){
         if let name = film.name{
             filmName.text = name
         } else{
             filmName.text = "No data."
         }
         filmYear.text = String(film.year)
-        filmLenght.text = String("\(film.movieLength) мин.")
+        filmLenght.text = String("\(film.movieLength!) мин.")
         filmRating.text = String("Рейтинг: \(film.rating.kp)")
-//        filmPoster.af_setImage(withURL: film.poster.url)
+        filmPoster.kf.setImage(with: URL(string: film.poster.url))
     }
 }
