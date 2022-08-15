@@ -12,10 +12,10 @@ import Alamofire
 class LoadData {
    static let load = LoadData()
     
-    func fetchMovies(complition: @escaping ([Doc]) -> Void) {
-        AF.request("https://api.kinopoisk.dev/movie?field=rating.kp&search=5-10&field=year&search=2015-2020&field=typeNumber&search=1&sortField=votes.imdb&sortType=-1&limit=20&page=2&token=XSVFQ1H-BFZM73K-GNVXEQS-XDP320B").responseDecodable(of: FilmModel.self){ response in
+    func fetchMovies(url: String, parameters: [String:String], complition: @escaping (FilmModel) -> Void) {
+        AF.request(url, parameters: parameters).responseDecodable(of: FilmModel.self){ response in
             if let filmList = try? response.result.get(){
-                complition(filmList.docs)
+                complition(filmList)
             }
         }
     }

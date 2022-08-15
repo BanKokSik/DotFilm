@@ -13,6 +13,9 @@ class TableViewController: UITableViewController {
     @IBOutlet var filmTableView: UITableView!
    
     var filmData: [Doc] = []
+    var pages: Int?
+    var currentPages = 1
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +23,24 @@ class TableViewController: UITableViewController {
         
         filmTableView.dataSource = self
         filmTableView.delegate = self
-        setData()
+        setData(url: Parametrs.filmsUrl)
     }
-
+    private func setParameters() -> [String:String]{
+        let param = ["page": "\(currentPages)","token": Parametrs.token]
+        return param
+    }
+    func setPagination(){
+        if currentPages <= pages ?? 1{
+            currentPages += 1
+            setData(url: Parametrs.filmsUrl)
+        }
+    }
     
-    private func setData() {
-        LoadData.load.fetchMovies(complition: { (movieList: [Doc]) in
-            self.filmData = movieList
-            self.filmTableView.reloadData()
+    private func setData(url: String) {
+        LoadData.load.fetchMovies(url: url, parameters: setParameters(),complition: { [unowned self]  (movieList: FilmModel) in
+            filmData.append(contentsOf: movieList.docs)
+            pages = movieList.pages
+            filmTableView.reloadData()
         })
     }
     // MARK: - Table view data source
@@ -47,6 +60,12 @@ class TableViewController: UITableViewController {
         }
         return UITableViewCell()
 
+    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastIndex = filmData.count - 1
+        if indexPath.row == lastIndex{
+            setPagination()
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destenationVC = segue.destination as? ViewController {

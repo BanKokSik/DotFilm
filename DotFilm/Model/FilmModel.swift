@@ -9,15 +9,16 @@ import Foundation
 
 struct FilmModel: Codable{
     let docs: [Doc]
+    let pages: Int
     
 }
 
 struct Doc: Codable{
     let id: Int
-    let movieLength: Int?
+    let movieLength: Int16?
     let name: String?
     let description: String?
-    let year: Int
+    let year: Int16
     let poster: Poster
     let rating: Rating
 }

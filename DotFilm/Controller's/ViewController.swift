@@ -43,14 +43,21 @@ class ViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        let favoritFilms = FavoriteFilm(context: context)
-        favoritFilms.name = detailMovie?.name
-        favoritFilms.year = detailMovie?.year
-        favoritFilms.descriptions = detailMovie?.description
-        favoritFilms.filmId = UUID().uuidString
         
+        let favoritFilms = FavoriteFilm(context: context)
+        if let detailMovie = self.detailMovie {
+        
+            favoritFilms.name =  detailMovie.name
+            favoritFilms.year = detailMovie.year
+            favoritFilms.descriptions = detailMovie.description
+            favoritFilms.rating = detailMovie.rating.kp
+            favoritFilms.poster = detailMovie.poster.url
+            favoritFilms.movieLenght = detailMovie.movieLength!
+            favoritFilms.filmId = UUID()
         if let uniqueId = favoritFilms.filmId{
-            printContent("Film ID - \(uniqueId)")
+            print("Film ID - \(uniqueId)")
+        }
+        appDelegate.saveContext()
         }
     }
     
@@ -62,7 +69,7 @@ class ViewController: UIViewController {
     
     
     func fetchDetailData(){
-        AF.request("https://api.kinopoisk.dev/movie?field=id&search=\(detailMovie!.id)&token=XSVFQ1H-BFZM73K-GNVXEQS-XDP320B").responseDecodable(of: DetailModel.self){ [self]
+        AF.request("https://api.kinopoisk.dev/movie?field=id&search=\(detailMovie?.id)&token=XSVFQ1H-BFZM73K-GNVXEQS-XDP320B").responseDecodable(of: DetailModel.self){ [self]
             response in
             if let detailInfo = try? response.result.get(){
                 person = detailInfo

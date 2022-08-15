@@ -10,9 +10,10 @@
 		801DDCE9287AEC7900C4E01C /* LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801DDCE8287AEC7900C4E01C /* LoadData.swift */; };
 		801DDCEC287AECFC00C4E01C /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 801DDCEB287AECFC00C4E01C /* AlamofireImage */; };
 		801DDCEF287B040900C4E01C /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801DDCEE287B040900C4E01C /* MovieTableViewCell.swift */; };
-		808F38C128A1532A001126F1 /* FavoriteFilm+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F38BF28A1532A001126F1 /* FavoriteFilm+CoreDataClass.swift */; };
-		808F38C228A1532A001126F1 /* FavoriteFilm+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F38C028A1532A001126F1 /* FavoriteFilm+CoreDataProperties.swift */; };
+		808F38CA28A65087001126F1 /* FavoritTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F38C928A65086001126F1 /* FavoritTableViewController.swift */; };
+		808F38CC28A6568D001126F1 /* FavoritTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F38CB28A6568D001126F1 /* FavoritTableViewCell.swift */; };
 		80AC4B2C2891AE09006EA0AA /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC4B2B2891AE09006EA0AA /* DetailModel.swift */; };
+		80C9A41928AA87E3003225DC /* Parametrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C9A41828AA87E3003225DC /* Parametrs.swift */; };
 		80D6EB2B28731B5A0063F1D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6EB2A28731B5A0063F1D0 /* AppDelegate.swift */; };
 		80D6EB2D28731B5A0063F1D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6EB2C28731B5A0063F1D0 /* SceneDelegate.swift */; };
 		80D6EB2F28731B5A0063F1D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6EB2E28731B5A0063F1D0 /* ViewController.swift */; };
@@ -30,9 +31,10 @@
 /* Begin PBXFileReference section */
 		801DDCE8287AEC7900C4E01C /* LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadData.swift; sourceTree = "<group>"; };
 		801DDCEE287B040900C4E01C /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		808F38BF28A1532A001126F1 /* FavoriteFilm+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteFilm+CoreDataClass.swift"; sourceTree = "<group>"; };
-		808F38C028A1532A001126F1 /* FavoriteFilm+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteFilm+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		808F38C928A65086001126F1 /* FavoritTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritTableViewController.swift; sourceTree = "<group>"; };
+		808F38CB28A6568D001126F1 /* FavoritTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritTableViewCell.swift; sourceTree = "<group>"; };
 		80AC4B2B2891AE09006EA0AA /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		80C9A41828AA87E3003225DC /* Parametrs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parametrs.swift; sourceTree = "<group>"; };
 		80D6EB2728731B5A0063F1D0 /* DotFilm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotFilm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D6EB2A28731B5A0063F1D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80D6EB2C28731B5A0063F1D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				80D6EB482875B17C0063F1D0 /* TableViewController.swift */,
 				80D6EB2E28731B5A0063F1D0 /* ViewController.swift */,
+				808F38C928A65086001126F1 /* FavoritTableViewController.swift */,
 			);
 			path = "Controller's";
 			sourceTree = "<group>";
@@ -73,8 +76,6 @@
 		80D6EB1E28731B5A0063F1D0 = {
 			isa = PBXGroup;
 			children = (
-				808F38BF28A1532A001126F1 /* FavoriteFilm+CoreDataClass.swift */,
-				808F38C028A1532A001126F1 /* FavoriteFilm+CoreDataProperties.swift */,
 				80D6EB2928731B5A0063F1D0 /* DotFilm */,
 				80D6EB2828731B5A0063F1D0 /* Products */,
 			);
@@ -109,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				801DDCEE287B040900C4E01C /* MovieTableViewCell.swift */,
+				808F38CB28A6568D001126F1 /* FavoritTableViewCell.swift */,
 				80D6EB4D2875B7BA0063F1D0 /* FilmCell.swift */,
 			);
 			path = View;
@@ -120,6 +122,7 @@
 				80D6EB4B2875B2620063F1D0 /* FilmModel.swift */,
 				801DDCE8287AEC7900C4E01C /* LoadData.swift */,
 				80AC4B2B2891AE09006EA0AA /* DetailModel.swift */,
+				80C9A41828AA87E3003225DC /* Parametrs.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,14 +212,15 @@
 				80D6EB2F28731B5A0063F1D0 /* ViewController.swift in Sources */,
 				801DDCEF287B040900C4E01C /* MovieTableViewCell.swift in Sources */,
 				80D6EB4C2875B2620063F1D0 /* FilmModel.swift in Sources */,
-				808F38C128A1532A001126F1 /* FavoriteFilm+CoreDataClass.swift in Sources */,
 				801DDCE9287AEC7900C4E01C /* LoadData.swift in Sources */,
 				80D6EB2B28731B5A0063F1D0 /* AppDelegate.swift in Sources */,
-				808F38C228A1532A001126F1 /* FavoriteFilm+CoreDataProperties.swift in Sources */,
 				80AC4B2C2891AE09006EA0AA /* DetailModel.swift in Sources */,
 				80D6EB2D28731B5A0063F1D0 /* SceneDelegate.swift in Sources */,
+				808F38CA28A65087001126F1 /* FavoritTableViewController.swift in Sources */,
 				80D6EB492875B17C0063F1D0 /* TableViewController.swift in Sources */,
 				80D6EB3528731B5A0063F1D0 /* DotFilm.xcdatamodeld in Sources */,
+				808F38CC28A6568D001126F1 /* FavoritTableViewCell.swift in Sources */,
+				80C9A41928AA87E3003225DC /* Parametrs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
