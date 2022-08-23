@@ -16,11 +16,14 @@ class ViewController: UIViewController {
    
     var detailMovie: Doc?
     var person: DetailModel?
+    var likeButtonTaped = false
+    var favoritFilm: [FavoriteFilm] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchDetailData()
         setData(film: detailMovie!)
+        doLike()
     }
 
     @IBOutlet weak var detailRating: UILabel!
@@ -28,7 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var detailFilName: UILabel!
     @IBOutlet weak var detailFilmDate: UILabel!
     @IBOutlet weak var detailDescription: UILabel!
-    
+    @IBOutlet weak var likeButtonColor: UIButton!
     
     func setData (film: Doc){
         detailImage.kf.setImage(with: URL(string: film.poster.url))
@@ -39,13 +42,42 @@ class ViewController: UIViewController {
         
     }
     
+    
     @IBAction func likeButton(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
+        likeButtonTaped = !likeButtonTaped
+        if likeButtonTaped{
+            saveFilm()
+            likeButtonColor.tintColor = .red
+        }else{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = FavoriteFilm.fetchRequest() as NSFetchRequest<FavoriteFilm>
+            
+            do{
+                favoritFilm = try context.fetch(fetchRequest)
+                for i in favoritFilm{
+                    if i.id == detailMovie!.id{
+                        context.delete(i)
+                    }
+                }
+            }catch let error {
+                print("Could not fetch because of error: \(error).")
+        }
+            appDelegate.saveContext()
+             
+            likeButtonColor.tintColor = .blue
+            
+            }
+            
+        }
+  
+    
+func saveFilm() {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context = appDelegate.persistentContainer.viewContext
         
-        
-        let favoritFilms = FavoriteFilm(context: context)
-        if let detailMovie = self.detailMovie {
+    let favoritFilms = FavoriteFilm(context: context)
+    if let detailMovie = self.detailMovie{
         
             favoritFilms.name =  detailMovie.name
             favoritFilms.year = detailMovie.year
@@ -53,15 +85,30 @@ class ViewController: UIViewController {
             favoritFilms.rating = detailMovie.rating.kp
             favoritFilms.poster = detailMovie.poster.url
             favoritFilms.movieLenght = detailMovie.movieLength!
-            favoritFilms.filmId = UUID()
-        if let uniqueId = favoritFilms.filmId{
-            print("Film ID - \(uniqueId)")
-        }
+            favoritFilms.id = Int32(detailMovie.id)
+       
         appDelegate.saveContext()
         }
     }
+    func doLike(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = FavoriteFilm.fetchRequest() as NSFetchRequest<FavoriteFilm>
+        
+        do{
+            favoritFilm = try context.fetch(fetchRequest)
+            for i in favoritFilm{
+                if i.id == detailMovie!.id{
+                    likeButtonColor.tintColor = .red
+                    likeButtonTaped = true
+                }
+            }
+        }catch let error {
+            print("Could not fetch because of error: \(error).")
     
-    
+        }
+        
+    }
     
     
 
@@ -78,5 +125,5 @@ class ViewController: UIViewController {
         }
     }
 
-}
 
+}

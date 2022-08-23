@@ -114,12 +114,13 @@ class FavoritTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destinationVC = segue.destination as? ViewController{
-//            if let cell = sender as? FavoritTableViewCell, let index = favoritTableViewController.indexPath(for: cell)?.row{
-//                destinationVC.detailMovie = favorit[index]
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? ViewController{
+            if let cell = sender as? FavoritTableViewCell, let index = favoritTableViewController.indexPath(for: cell)?.row{
+                let docApiModel = Doc.docFrom(dataBaseModel: favorit[index])
+                destinationVC.detailMovie = docApiModel
+            }
+        }
+    }
 
 }

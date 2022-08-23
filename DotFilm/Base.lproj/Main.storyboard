@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AOp-JJ-WOu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Csp-Pf-Tsc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Главная-->
         <scene sceneID="5Zs-TJ-8ps">
             <objects>
                 <tableViewController modalPresentationStyle="fullScreen" id="m7z-9H-NX4" customClass="TableViewController" customModule="DotFilm" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,6 +87,7 @@
                             <outlet property="delegate" destination="m7z-9H-NX4" id="MdK-hc-SUf"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Главная" image="heart.text.square.fill" catalog="system" id="5uS-Xz-H6S"/>
                     <navigationItem key="navigationItem" id="jZu-hx-BpC"/>
                     <connections>
                         <outlet property="filmTableView" destination="Z8G-fI-nd0" id="4Ar-B6-RoD"/>
@@ -94,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipd-W0-13c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228.985507246377" y="34.821428571428569"/>
+            <point key="canvasLocation" x="988" y="-388"/>
         </scene>
         <!--Избранное-->
         <scene sceneID="DE7-pN-rZd">
@@ -175,14 +176,14 @@
                             <outlet property="delegate" destination="0Hw-re-k1y" id="seo-n4-GsW"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Избранное" image="heart.text.square.fill" catalog="system" id="dkB-2m-Wm1"/>
+                    <tabBarItem key="tabBarItem" title="Избранное" image="heart.fill" catalog="system" id="dkB-2m-Wm1"/>
                     <connections>
                         <outlet property="favoritTableViewController" destination="q1a-t2-ehG" id="HQt-pB-p9j"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tnA-xa-FHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1228.985507246377" y="754.6875"/>
+            <point key="canvasLocation" x="988" y="309"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -292,6 +293,7 @@
                         <outlet property="detailFilmDate" destination="yTE-pJ-XJK" id="CzU-Lf-opw"/>
                         <outlet property="detailImage" destination="e58-ao-Q8q" id="NeM-4a-h8i"/>
                         <outlet property="detailRating" destination="gJa-2R-GUr" id="c0a-Jg-Z94"/>
+                        <outlet property="likeButtonColor" destination="WsV-Ia-Pva" id="zft-7w-UrZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -311,26 +313,27 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="m7z-9H-NX4" kind="relationship" relationship="rootViewController" id="suQ-kF-bKb"/>
+                        <segue destination="AOp-JJ-WOu" kind="relationship" relationship="rootViewController" id="x3t-oE-49R"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sEX-aS-FAC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313.04347826086956" y="34.821428571428569"/>
+            <point key="canvasLocation" x="-1828" y="35"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WhU-mO-Qbt">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AOp-JJ-WOu" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="wdS-vI-zfx"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xmO-qt-TSe">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Csp-Pf-Tsc" kind="relationship" relationship="viewControllers" id="Q3L-75-LbW"/>
-                        <segue destination="0Hw-re-k1y" kind="relationship" relationship="viewControllers" id="eiN-yP-V5b"/>
+                        <segue destination="m7z-9H-NX4" kind="relationship" relationship="viewControllers" id="dBb-B2-7ia"/>
+                        <segue destination="0Hw-re-k1y" kind="relationship" relationship="viewControllers" id="ksb-Jy-CAl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iH2-eU-kP1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -343,6 +346,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.circle" catalog="system" width="128" height="121"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="heart.text.square.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
