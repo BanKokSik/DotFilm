@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-import AlamofireImage
+
 
 class MovieTableViewCell: UITableViewCell {
 
@@ -27,7 +27,12 @@ class MovieTableViewCell: UITableViewCell {
             filmName.text = "No data."
         }
         filmYear.text = String(film.year)
-        filmLenght.text = String("\(film.movieLength!) мин.")
+        if let lengtht = film.movieLength{
+            filmLenght.text = String("\(lengtht) мин.")
+        } else{
+            filmLenght.text = "!!!!!!NO DATA!!!!!!!"
+        }
+        
         filmRating.text = String("Рейтинг: \(film.rating.kp)")
         filmPoster.kf.setImage(with: URL(string: film.poster.url))
     }

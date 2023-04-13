@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-import AlamofireImage
+
 class FavoritTableViewCell: UITableViewCell {
 
     
